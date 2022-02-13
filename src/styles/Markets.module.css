@@ -1,0 +1,10 @@
+.container{
+    padding: 0 0 2rem 0;
+}
+
+.searchBox{
+    padding: 0.5rem 1rem ; 
+    width: 20rem; 
+    font-size: 1.1rem;
+    margin: 2rem 0;
+}

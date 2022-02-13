@@ -1,0 +1,22 @@
+.container{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    gap: 2rem;
+    padding: 2rem 0;
+}
+.buttonContainer{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.button {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  background: blueviolet;
+  color: white;
+  cursor: pointer;
+}

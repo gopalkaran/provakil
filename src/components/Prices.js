@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PriceTable from "./PriceTable";
 import Pagination from "./Pagination";
+import styles from "../styles/Prices.module.css"
 
 const Prices = () => {
   const [searchText, setSearchText] = useState('')
@@ -48,8 +49,8 @@ const Prices = () => {
   }, [searchText])
 
   return (
-    <div>
-      <input type="search" onChange={onChangeHandler} />
+    <div className={styles.container}>
+      <input type="search" onChange={onChangeHandler} placeholder='Search by id' style={{padding: '0.5rem 1rem', width: '20rem', fontSize: '1.1rem'}} />
       <PriceTable prices={searchText.length < 1 ? slicedPrices : currentPrices} loading={loading} />
       <Pagination
         postsPerPage={postsPerPage}

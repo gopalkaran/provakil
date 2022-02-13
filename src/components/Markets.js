@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Table from "./Table";
 import Pagination from "./Pagination";
+import styles from "../styles/Markets.module.css"
 
 const Markets = () => {
   const [searchText, setSearchText] = useState('')
@@ -50,8 +51,8 @@ const Markets = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div>
-      <input type="search" onChange={onChangeHandler} />
+    <div className={styles.container}>
+      <input type="search" onChange={onChangeHandler} placeholder='Search by base-id' className={styles.searchBox}  />
       <Table markets={searchText.length < 1 ? slicedMarkets : currentMarkets} loading={loading} />
       <Pagination
         postsPerPage={postsPerPage}
