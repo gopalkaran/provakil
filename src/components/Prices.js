@@ -4,6 +4,7 @@ import PriceTable from "./PriceTable";
 import Pagination from "./Pagination";
 
 const Prices = () => {
+  const [searchText, setSearchText] = useState('')
   const [prices, setPrices] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,15 +30,27 @@ const Prices = () => {
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPrices = prices.slice(indexOfFirstPost, indexOfLastPost);
+  const slicedPrices = prices.slice(indexOfFirstPost, indexOfLastPost);
+  const [currentPrices, setCurrentPrices] = useState([])
 
   // Change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const onChangeHandler = (e) => {
+     setSearchText(e.target.value)
+  }
+
+  useEffect(()=>{
+    if(searchText !== ""){
+     const searchResults = slicedPrices.filter(price => price.id.includes(searchText.toLowerCase()))
+     setCurrentPrices(searchResults)
+    }
+  }, [searchText])
+
   return (
-    <div style={{ display: "grid" }}>
-      <input type="search" />
-      <PriceTable prices={currentPrices} loading={loading} />
+    <div>
+      <input type="search" onChange={onChangeHandler} />
+      <PriceTable prices={searchText.length < 1 ? slicedPrices : currentPrices} loading={loading} />
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={prices.length}

@@ -27,7 +27,7 @@ const Table = ({markets, loading}) => {
       <tbody>
       {
       markets.map(market => {
-        return <Row key={market.baseId}  market={market} />
+        return <Row key={market.updated}  market={market} />
       })
       }
       </tbody>
