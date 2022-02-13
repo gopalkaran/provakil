@@ -1,0 +1,8 @@
+.row td{
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
+}
+
+.row:nth-child(even){
+    background-color: var(--clr-primary-light);
+}
