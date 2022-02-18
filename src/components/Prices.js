@@ -50,7 +50,7 @@ const Prices = () => {
 
   return (
     <div className={styles.container}>
-      <input type="search" onChange={onChangeHandler} placeholder='Search by id' style={{padding: '0.5rem 1rem', width: '20rem', fontSize: '1.1rem'}} />
+      <input type="search" onChange={onChangeHandler} placeholder='Search by id'  className={styles.searchBox} />
       <PriceTable prices={searchText.length < 1 ? slicedPrices : currentPrices} loading={loading} />
       <Pagination
         postsPerPage={postsPerPage}
